@@ -1,41 +1,71 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Card Centrada',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
+        title: Text('Container en columna'),
+        backgroundColor: Colors.greenAccent, // Color de fondo del AppBar
       ),
       body: Center(
-        child: Text(
-          'Hello, World!',
+        // Centra el contenido
+        child: Card(
+          margin: EdgeInsets.all(16.0), // Margen alrededor de la tarjeta
+          elevation: 5.0, // Sombra
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0), // Esquinas redondeadas
+          ),
+          color: Colors.blue, // Color azul
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize
+                  .min, // Ajusta el tamaño de la columna al contenido
+              children: <Widget>[
+                Text(
+                  'Dato 1',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  'Dato 2',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  'Dato 3',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
